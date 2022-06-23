@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/local/bin/fish
+
+brew bundle install
+
+{{ end -}}

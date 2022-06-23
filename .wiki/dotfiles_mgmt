@@ -1,0 +1,17 @@
+
+# Dotfiles management wiki
+
+## file structure
+
+### autorun scripts
+Auto run scripts are prepended with `run_once`.
+They are run in lexicographic order.
+I've decided that the format will be run_once_{global priority}_{platform}_{platform priority}_{script_name}.tmpl
+
+The file type is .tmpl. This is so that we can wrap the script in the template format conditional.
+```
+{{- if eq .chezmoi.os "darwin" -}}
+...
+{{ end -}}
+```
+This way, the file is only run if we are on the appropriate platform. This is because chezmoi will not run blank files.
