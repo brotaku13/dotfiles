@@ -1,8 +1,18 @@
 [user]
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
+
+[core]
+
+[interactive]
+
+
+[merge]
+    conflictstyle = diff3
+
 [pager]
 	branch = false
+
 [alias]
 	l     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short -n 10
 	s     = status -uno

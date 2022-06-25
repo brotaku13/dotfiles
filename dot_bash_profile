@@ -1,6 +1,9 @@
 
 export PATH=$PATH:~/bin
 
+# silences zsh message on osx
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # simple aliases
 alias ls='ls --color=auto'
 alias ll='ls -la'
@@ -14,3 +17,5 @@ EDITOR=vim
 if [ -f ~/.bashrc ]; then
 	source ~/.bashrc
 fi
+
+. "$HOME/.cargo/env"
