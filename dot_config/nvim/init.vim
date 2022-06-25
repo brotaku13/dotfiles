@@ -192,7 +192,10 @@ let $FZF_DEFAULT_OPS='--layout=reverse --info=inline'
 "  COC configuration
 "  -----------------------------------------------------------------------------
 
-"" tab completion
+" install extensions automatically
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rls']
+
+" tab completion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :

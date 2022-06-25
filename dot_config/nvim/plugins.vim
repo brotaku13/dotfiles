@@ -27,3 +27,5 @@ Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 " proper syntax highlighting for fish + bonus colorschem
 Plug 'nickeb96/fish.vim'
 
+" code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
