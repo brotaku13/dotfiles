@@ -1,4 +1,3 @@
-
 " install vim plugged if this is the first time using it
 " https://github.com/junegunn/vim-plug
 " https://github.com/junegunn/vim-plug/issues/675
@@ -27,11 +26,11 @@ syntax on
 set noerrorbells
 
 " sets tab size to 3
-set tabstop=3 softtabstop=3
+set tabstop=4 softtabstop=4
 
 " expand tab to spaces
 set expandtab
-set shiftwidth=3
+set shiftwidth=4
 
 " smart indenting when possible
 set smartindent
@@ -78,10 +77,9 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set clipboard=unnamed
 
 " enable true colors if possible
-if (has("termguicolors"))
-   set termguicolors
-endif
-
+" if (has("termguicolors"))
+" endif
+set termguicolors
 " enable true color for terminal
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -91,7 +89,10 @@ let mapleader = " "
 " map jj to exit key
 imap jj <ESC>
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" settings specific for filetype
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom remaps and commands
@@ -102,6 +103,7 @@ autocmd FileType c,h,py autocmd BufWritePre <buffer> %s/\s\+$//e
 " automatically set config for python files
 autocmd FileType py setlocal shiftwidth=3 softtabstop=3 expandtab
 
+
 " create new windows
 nnoremap <leader>v :wincmd v<CR>
 nnoremap <leader>s :wincmd s<CR>
@@ -111,7 +113,7 @@ nnoremap <leader>t :split<CR>:res 10<CR>:terminal<CR>
 nnoremap <ESC> <C-\><C-n> <CR>
 
 " find replace of the word under the cursor
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <C-s> :%s/\<<C-r><C-w>\>/
 
 "" move lines up and down in any mode
 nnoremap <A-j> :m .+1<CR>==
@@ -193,19 +195,49 @@ let $FZF_DEFAULT_OPS='--layout=reverse --info=inline'
 "  -----------------------------------------------------------------------------
 
 " install extensions automatically
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rls']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rust-analyzer', 'coc-go']
 
-" tab completion
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "  -----------------------------------------------------------------------------
 "  Airline configuration

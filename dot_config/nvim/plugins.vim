@@ -29,3 +29,9 @@ Plug 'nickeb96/fish.vim'
 
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" rust stuff
+Plug 'rust-lang/rust.vim'
+
+" go development
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

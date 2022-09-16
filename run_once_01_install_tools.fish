@@ -59,17 +59,10 @@ function install_rust
    linfo rust installed
 end
 
-# install nodejs which is a prereq of coc code completion in vim
-function install_nodejs
-   linfo installing node js
-   curl -sL install-node.vercel.app/lts | bash
-end
-
 function main
    install_fish
    install_tpm
    install_rust
-   install_nodejs
 end
 
 main

@@ -11,6 +11,7 @@ tap "homebrew/core"
 
 cask "alacritty"
 
+brew "node"
 brew "coreutils"
 brew "readline"
 brew "docutils"

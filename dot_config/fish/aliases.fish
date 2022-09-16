@@ -12,6 +12,4 @@ alias edit_nvim "vim ~/.config/nvim/init.vim"
 alias ls "exa --icons"
 alias ll "exa -la"
 
-alias cat "bat"
-
 alias c clear
