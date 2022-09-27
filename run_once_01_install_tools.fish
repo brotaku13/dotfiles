@@ -3,27 +3,18 @@
 # installing oh my fish which is a themer for fish shell
 # https://github.com/oh-my-fish/oh-my-fish
 function install_fish
-   linfo installing oh my fish
-   if not test -d ~/.local/share/omf
-      ldebug omf not found. getting omf from github
-      curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-   else
-      ldebug omf already installed!
-   end
-   ldebug updating plugins
-   omf update
-   linfo omf installed
-
    linfo installing fisher plugin manager
    if not type -q fisher
       ldebug fisher not found. getting from github
-      curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fishe
+      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
    else
       ldebug fisher already installed
    end
 
    linfo fisher installed 
    fisher update
+
+   linfo make sure to run `tide configure` to configure the prompt!
 end
 
 # installing tmux plugin manager

@@ -10,6 +10,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 cask "alacritty"
+cask "iterm2"
 
 brew "node"
 brew "coreutils"
@@ -22,13 +23,12 @@ brew "python@3.8"
 brew "reattach-to-user-namespace"
 brew "neovim"
 brew "tmux"
+brew "wget"
 
 brew "fd"
 brew "exa"
 brew "rg"
 brew "bat"
-
-brew "font-fira-code-nerd-font"
 
 # notifications so Done fish plugin works
 brew "terminal-notifier"

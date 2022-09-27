@@ -13,3 +13,5 @@ alias ls "exa --icons"
 alias ll "exa -la"
 
 alias c clear
+
+alias b "TERM=screen-256color bat"

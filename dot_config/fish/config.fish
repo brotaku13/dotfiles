@@ -1,9 +1,8 @@
 set -gx EDITOR nvim
 
-
 if status is-login
 	# set path
-	fish_add_path ~/bin
+   fish_add_path ~/bin
    fish_add_path ~/.cargo/bin
 end
 
