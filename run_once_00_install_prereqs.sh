@@ -19,7 +19,7 @@ fi
 
 # set fish as main shell
 if ! echo $SHELL | grep -q fish; then
-    if ! command -v chsh &> /dev/null
+    if command -v chsh &> /dev/null
     then
         echo "setting fish as primary shell"
         chsh -s /usr/local/bin/fish
