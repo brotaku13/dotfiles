@@ -1,4 +1,3 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
 # Install brew
@@ -23,6 +22,4 @@ if ! echo $SHELL | grep -q fish; then
 	echo "setting fish as primary shell"
 	chsh -s /usr/local/bin/fish
 fi
-
-{{ end -}}
 

@@ -2,7 +2,7 @@
 
 # installing oh my fish which is a themer for fish shell
 # https://github.com/oh-my-fish/oh-my-fish
-function install_fish
+function install_fisher
    linfo installing fisher plugin manager
    if not type -q fisher
       ldebug fisher not found. getting from github
@@ -51,7 +51,7 @@ function install_rust
 end
 
 function main
-   install_fish
+   install_fisher
    install_tpm
    install_rust
 end
