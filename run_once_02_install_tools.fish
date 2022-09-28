@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env fish
 
 # installing oh my fish which is a themer for fish shell
 # https://github.com/oh-my-fish/oh-my-fish

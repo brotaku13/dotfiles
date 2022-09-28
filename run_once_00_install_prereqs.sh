@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Install brew
 # SEE: https://github.com/Homebrew/install/#install-homebrew-on-macos-or-linux
