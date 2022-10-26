@@ -1,5 +1,12 @@
 
 PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\\nλ "
+export PATH=$HOME/.toolbox/bin:$PATH
 
 alias ll="ls -la"
+
+# Enables autocompletion for the ddb command - Installed by MechanicBigBirdCli
+[ -f "/apollo/env/MechanicBigBirdCli/bin/mechanic-autocomplete.sh" ] && source "/apollo/env/MechanicBigBirdCli/bin/mechanic-autocomplete.sh"
 . "$HOME/.cargo/env"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
