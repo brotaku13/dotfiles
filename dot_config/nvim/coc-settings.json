@@ -6,7 +6,9 @@
     ],
     "rust-analyzer.completion.autoimport.enable": true,
     "rust-analyzer.completion.autoself.enable": true,
+    "rust-analyzer.imports.group.enable": true,
     "rust-analyzer.diagnostics.disabled": [
         "incorrect-try-target"
-    ]
+    ],
+    "rust-analyzer.inlayHints.maxLength": null
 }

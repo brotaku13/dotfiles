@@ -63,3 +63,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " surround with quotes etc
 Plug 'tpope/vim-surround'
+
+" vimwiki for taking notes: https://github.com/vimwiki/vimwiki
+Plug 'vimwiki/vimwiki'
+"

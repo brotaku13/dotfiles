@@ -20,7 +20,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " neovim general configuration
-syntax on
 
 " turns off error sounds
 set noerrorbells
@@ -129,6 +128,12 @@ nnoremap <S-Tab> :bprevious<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin customization
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  -----------------------------------------------------------------------------
+"  VimWiki customization
+"  -----------------------------------------------------------------------------
+set nocompatible
+filetype plugin on
+syntax on
 
 "  -----------------------------------------------------------------------------
 "  NerdCommenter customization
@@ -246,6 +251,11 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aw` for current word
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " set update time
 set updatetime=300
